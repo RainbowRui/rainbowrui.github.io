@@ -190,6 +190,12 @@ a {
   opacity: 0.92;
 }
 
+.action-pill.is-disabled,
+.action-pill:disabled {
+  cursor: default;
+  opacity: 0.78;
+}
+
 .action-pill.is-outline {
   background: #fff;
   color: #363636;
@@ -579,6 +585,14 @@ a {
 
   .hero-subtitle {
     font-size: 1.55rem;
+  }
+
+  .hero-subtitle-line:first-child {
+    white-space: normal;
+  }
+
+  .abstract-copy {
+    max-width: 100%;
   }
 
   .action-pill {
