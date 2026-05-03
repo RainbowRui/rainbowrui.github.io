@@ -64,7 +64,7 @@
             <source src="https://raw.githubusercontent.com/RainbowRui/project_page_assets/master/scaling4d/showcases.mp4" type="video/mp4">
           </video>
           <p class="panel-caption">
-            TL;DR: We introduce Scaling4D, a Video Novel View Synthesis framework that directly generates novel view videos from a monocular source video and novel poses.
+            TL;DR: We introduce Scaling4D, a Video Novel View Synthesis framework that directly generates novel-view videos from a monocular source video and target camera poses.
           </p>
         </div>
       </div>
@@ -78,13 +78,13 @@
       </div>
       <div class="rich-copy abstract-copy">
         <p>
-          Video Novel View Synthesis (VNVS) aims to render arbitrary novel viewpoints of dynamic scenes from a single-view video, but its algorithmic training faces a major challenge: the lack of large-scale multi-view video datasets.
+          Video Novel View Synthesis (VNVS) aims to render arbitrary novel viewpoints of dynamic scenes from a single-view video, but training VNVS models faces a major challenge: the lack of large-scale multi-view video datasets.
           Prior methods often train on monocular data by framing it as an inpainting task, which typically leads to a training-inference gap and visual artifacts.
           While synthetic multi-view data can partially alleviate the data scarcity issue, its high acquisition costs and limited diversity restrict scalability.
           To address these problems, we propose Scaling4D, a novel strategy that theoretically bridges the training-inference gap while leveraging large-scale monocular videos for training.
           Specifically, we take a higher-level perspective on the problem, reformulating VNVS into a general correspondence-guided generation task.
           Furthermore, in conjunction with extensive real-world data, we establish a synthetic data pipeline integrated with our training strategy to enhance precision.
-          Qualitative and quantitative results demonstrate a positive correlation between performance and training data volume, confirming the scalability.
+          Qualitative and quantitative results demonstrate a positive correlation between performance and training data volume, confirming the scalability of our approach.
         </p>
       </div>
     </div>
@@ -123,8 +123,8 @@
         <div class="correspondence-top">
           <div class="feature-copy correspondence-copy">
             <p>
-              Our correspondence control paradigm leverages optical flow to readily establish pixel correspondence between source and target clips extracted from any monocular video during training.
-              By unifying training and inference under this single control condition, we ensure that all inference scenarios become well-covered subsets of the massive diversity seen in real-world training data.
+              Our correspondence control paradigm leverages optical flow to establish pixel correspondences between source and target clips extracted from any monocular video during training.
+              By unifying training and inference under this single control condition, we ensure that inference scenarios are well covered by the diversity of real-world training data.
             </p>
           </div>
           <div class="feature-visual correspondence-visual">
@@ -144,9 +144,9 @@
         <div class="stacked-copy">
           <h2 class="section-title">Synthetic Data Pipeline</h2>
           <p>
-            To complement the vast diversity of real-world data and further elevate camera pose control accuracy, we develop a specialized synthetic data pipeline.
+            To complement the vast diversity of real-world data and further improve camera-pose control accuracy, we develop a specialized synthetic data pipeline.
             This highly scalable pipeline is constructed using Houdini's Procedural Dependency Graph (PDG).
-            By formatting all 3D assets in USD, we exploit its variant mechanism to efficiently generate randomized appearances and support extensible custom variants.
+            By representing all 3D assets in USD, we exploit its variant mechanism to efficiently generate randomized appearances and support extensible custom variants.
           </p>
         </div>
         <div class="media-grid two-up synthetic-media-shell">
@@ -171,8 +171,8 @@
       <div class="feature-block model-top">
         <div class="feature-copy model-copy">
           <p>
-            Our highly lightweight architecture features custom VNVS Blocks designed for seamless, plug-and-play integration with any pretrained foundation model.
-            By explicitly omitting feed-forward (FFN) layers and strictly decoupling from text tokens, the design dramatically minimizes computational overhead while perfectly preserving the foundation model's original prompt-following capabilities.
+            Our lightweight architecture features custom VNVS Blocks designed for seamless, plug-and-play integration with any pretrained foundation model.
+            By explicitly omitting feed-forward (FFN) layers and strictly decoupling from text tokens, the design reduces computational overhead while preserving the foundation model's original prompt-following capabilities.
           </p>
         </div>
         <div class="feature-visual model-visual">
@@ -211,7 +211,7 @@
 <pre><code>@inproceedings{cai2026scaling4d,
   title     = {Scaling4D: Pushing the Frontier of Video Novel View Synthesis through Large-Scale Monocular Videos},
   author    = {Cai, Hongrui and Luo, Junjie and Fu, Zhihong and Zhu, Shengnan and Wen, Jiawei and Feng, Wanquan and Zhao, Songtao and He, Qian},
-  booktitle = {Proceedings of the IEEE/CVF conference on computer vision and pattern recognition (CVPR)},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
   year      = {2026}
 }</code></pre>
       </div>
