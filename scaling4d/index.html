@@ -1,339 +1,235 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="description"
-        content="Scaling4D: Pushing the Frontier of Video Novel View Synthesis through Large-Scale Monocular Videos">
-  <meta name="keywords" content="Multimodal Foundation Models, Video Generation, Scaling Law, Novel View Synthesis">
+  <meta name="description" content="Scaling4D: Pushing the Frontier of Video Novel View Synthesis through Large-Scale Monocular Videos">
+  <meta name="keywords" content="Video Novel View Synthesis, Monocular Video, 4D, Scaling Law, Correspondence Control">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Scaling4D</title>
 
-  <!-- Bootstrap -->
-  <link href="static/css/bootstrap-4.4.1.css" rel="stylesheet">
-  
-  <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'G-PYVRSFMDRL');
   </script>
 
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
 </head>
 <body>
+  <section class="hero-shell">
+    <div class="container is-max-widescreen hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow">CVPR 2026</p>
+        <h1 class="hero-title">Scaling4D</h1>
+        <p class="hero-subtitle"><span class="hero-subtitle-line">Pushing the Frontier of Video Novel View Synthesis</span><span class="hero-subtitle-line">through Large-Scale Monocular Videos</span></p>
 
+        <div class="author-cluster">
+          <div class="author-row">
+            <a href="https://rainbowrui.github.io/">Hongrui Cai</a>
+            <a href="https://junjieluo0315.github.io/">Junjie Luo</a>
+            <a href="https://scholar.google.com/citations?user=PyY6RNQAAAAJ">Zhihong Fu</a>
+            <a href="https://github.com/Shengnan-Zhu">Shengnan Zhu</a>
+          </div>
+          <div class="author-row">
+            <a href="https://github.com/ZeroWen">Jiawei Wen</a>
+            <span style="display: inline-flex; align-items: baseline;"><a href="https://wanquanf.github.io/">Wanquan Feng</a><sup style="line-height: 0;">†</sup></span>
+            <a href="https://openreview.net/profile?id=~Songtao_Zhao1">Songtao Zhao</a>
+            <a href="https://scholar.google.com/citations?user=9rWWCgUAAAAJ">Qian He</a>
+          </div>
+          <div class="author-meta">Intelligent Creation Team, ByteDance</div>
+          <div class="author-note"><sup>†</sup>Corresponding author</div>
+        </div>
 
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h2 class="title is-2 publication-title" style="margin-top: 0; margin-bottom: 0">Scaling4D: Pushing the Frontier of Video Novel View</h2>
-          <h2 class="title is-2 publication-title" style="margin-top: 0">Synthesis through Large-Scale Monocular Videos</h2>
-          <h2 class="title is-4 publication-title" style="color:#6e6e6e;margin-top: 2; margin-bottom: 2">CVPR 2026</h2>
-
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="https://rainbowrui.github.io/">Hongrui Cai</a></span>&nbsp;&nbsp;&nbsp;&nbsp;
-            <span class="author-block">
-              <a href="https://junjieluo0315.github.io/">Junjie Luo</a></span>&nbsp;&nbsp;&nbsp;&nbsp;
-            <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=PyY6RNQAAAAJ">Zhihong Fu</a></span>&nbsp;&nbsp;&nbsp;&nbsp;
-            <span class="author-block">
-              <a href="https://github.com/Shengnan-Zhu">Shengnan Zhu</a></span><br>
-            <span class="author-block">
-              <a href="https://github.com/ZeroWen">Jiawei Wen</a></span>&nbsp;&nbsp;&nbsp;&nbsp;
-            <span class="author-block">
-              <a href="https://wanquanf.github.io/">Wanquan Feng</a><sup>†</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
-            <span class="author-block">
-              <a href="https://openreview.net/profile?id=~Songtao_Zhao1">Songtao Zhao</a></span>&nbsp;&nbsp;&nbsp;&nbsp;
-            <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=9rWWCgUAAAAJ">Qian He</a>
+        <div class="hero-actions">
+          <a href="https://rainbowrui.github.io/none" class="action-pill">
+            <span class="icon" aria-hidden="true">
+              <i class="fas fa-file-pdf"></i>
             </span>
-          </div>
-          <br>
-
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">Intelligent Creation Team, ByteDance</span>
-          </div>
-          <br>
-
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>†</sup>Corresponding author</span>
-          </div>
-
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <span class="link-block">
-                <a href="https://rainbowrui.github.io/none"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper (coming soon)</span>
-                </a>
-              </span>
-              <!-- <span class="link-block">
-                <a href="https://arxiv.org/pdf/2403.11453"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv fa-lg"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span> -->
-              <!-- Dataset Link. -->
-              <!--
-              <span class="link-block">
-                <a href="https://github.com/google/nerfies/releases/tag/0.1"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>Data</span>
-                  </a>
-              </span>
-              -->
-            </div>
-
-          </div>
+            <span>Paper (coming soon)</span>
+          </a>
         </div>
       </div>
-    </div>
-  </div>
-</section>
 
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video id="replay-video"
-                 autoplay
-                 controls
-                 muted
-                 preload
-                 playsinline
-                 loop
-                 width="100%" style="margin-top: -60px">
-        <source src="https://raw.githubusercontent.com/RainbowRui/project_page_assets/master/scaling4d/showcases.mp4"
-                type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered" style="margin-top: -5px">
-        TL;DR: We introduce Scaling4D, a Video Novel View Synthesis framework that directly generates novel view videos from a monocular source video and novel poses.
-      </h2>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3" style="margin-top: -30px">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Video Novel View Synthesis (VNVS) aims to render arbitrary novel viewpoints of dynamic scenes from a single-view video, but its algorithmic training faces a major challenge: the lack of large-scale multi-view video datasets. 
-            Prior methods often train on monocular data by framing it as an inpainting task, which typically leads to a training-inference gap and visual artifacts. 
-            While synthetic multi-view data can partially alleviate the data scarcity issue, its high acquisition costs and limited diversity restrict scalability. 
-            To address these problems, we propose Scaling4D, a novel strategy that theoretically bridges the training-inference gap while leveraging large-scale monocular videos for training. 
-            Specifically, we take a higher-level perspective on the problem, reformulating VNVS into a general correspondence-guided generation task. 
-            Furthermore, in conjunction with extensive real-world data, we establish a synthetic data pipeline integrated with our training strategy to enhance precision. 
-            Qualitative and quantitative results demonstrate a positive correlation between performance and training data volume, confirming the scalability.
+      <div class="hero-panel">
+        <div class="panel-card teaser-card">
+          <video autoplay controls muted preload playsinline loop width="100%">
+            <source src="https://raw.githubusercontent.com/RainbowRui/project_page_assets/master/scaling4d/showcases.mp4" type="video/mp4">
+          </video>
+          <p class="panel-caption">
+            TL;DR: We introduce Scaling4D, a Video Novel View Synthesis framework that directly generates novel view videos from a monocular source video and novel poses.
           </p>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <section class="section content-section" id="abstract">
+    <div class="container is-max-desktop">
+      <div class="section-heading abstract-heading">
+        <h2 class="section-title">Abstract</h2>
+      </div>
+      <div class="rich-copy abstract-copy">
+        <p>
+          Video Novel View Synthesis (VNVS) aims to render arbitrary novel viewpoints of dynamic scenes from a single-view video, but its algorithmic training faces a major challenge: the lack of large-scale multi-view video datasets.
+          Prior methods often train on monocular data by framing it as an inpainting task, which typically leads to a training-inference gap and visual artifacts.
+          While synthetic multi-view data can partially alleviate the data scarcity issue, its high acquisition costs and limited diversity restrict scalability.
+          To address these problems, we propose Scaling4D, a novel strategy that theoretically bridges the training-inference gap while leveraging large-scale monocular videos for training.
+          Specifically, we take a higher-level perspective on the problem, reformulating VNVS into a general correspondence-guided generation task.
+          Furthermore, in conjunction with extensive real-world data, we establish a synthetic data pipeline integrated with our training strategy to enhance precision.
+          Qualitative and quantitative results demonstrate a positive correlation between performance and training data volume, confirming the scalability.
+        </p>
+      </div>
+    </div>
+  </section>
 
-
-<section class="section">
-  <div class="container is-max-desktop">
-
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3" style="margin-top: -20px">The Limitations of Inpainting-based View Synthesis</h2>
-
-        <img src="https://raw.githubusercontent.com/RainbowRui/project_page_assets/master/scaling4d/inpainting.png" class="center" width="70%" height="auto">
-        <div class="content has-text-justified">
-          <p style="margin-top: 30px">
-            This example demonstrates the essential difference between inpainting and novel view synthesis. 
+  <section class="section content-section alt-section" id="limitations">
+    <div class="container is-max-desktop page-column">
+      <div class="feature-block limitations-block">
+        <div class="limitations-head">
+          <h2 class="section-title">The Limitations of Inpainting-based View Synthesis</h2>
+        </div>
+        <div class="feature-copy limitations-copy">
+          <p>
+            This example demonstrates the essential difference between inpainting and novel view synthesis.
             In the novel view, the area inside the red box should show the back of the person, but the inpainting result incorrectly fills it with background pixels.
           </p>
         </div>
-
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3" style="margin-top: -20px">Paradigm Upgrade: Correspondence Control</h2>
-
-        <img src="https://raw.githubusercontent.com/RainbowRui/project_page_assets/master/scaling4d/train_inference.png" class="center" width="100%" height="auto">
-        <div class="content has-text-justified">
-          <p style="margin-top: 30px">
-            Our correspondence control paradigm leverages optical flow to readily establish pixel correspondence between source and target clips extracted from any monocular video during training (top row). 
-            By unifying training and inference under this single control condition, we ensure that all inference scenarios (bottom row) become well-covered subsets of the massive diversity seen in real-world training data.
-          </p>
+        <div class="feature-visual limitations-visual">
+          <img src="https://raw.githubusercontent.com/RainbowRui/project_page_assets/master/scaling4d/inpainting.jpeg" alt="Inpainting limitation example">
+          <div class="limitations-caption">
+            <span class="caption-item">Input View</span>
+            <span class="caption-item">Point Map in Novel View</span>
+            <span class="caption-item">Inpainting Result</span>
+          </div>
         </div>
-
       </div>
     </div>
+  </section>
 
-  </div>
-</section>
+  <section class="section content-section" id="correspondence">
+    <div class="container is-max-desktop page-column">
+      <div class="feature-block correspondence-block">
+        <div class="correspondence-head">
+          <h2 class="section-title">Paradigm Upgrade: Correspondence Control</h2>
+        </div>
+        <div class="correspondence-top">
+          <div class="feature-copy correspondence-copy">
+            <p>
+              Our correspondence control paradigm leverages optical flow to readily establish pixel correspondence between source and target clips extracted from any monocular video during training.
+              By unifying training and inference under this single control condition, we ensure that all inference scenarios become well-covered subsets of the massive diversity seen in real-world training data.
+            </p>
+          </div>
+          <div class="feature-visual correspondence-visual">
+            <img src="https://raw.githubusercontent.com/RainbowRui/project_page_assets/master/scaling4d/figure3.jpeg" alt="Figure 3: correspondence extraction pipeline">
+          </div>
+        </div>
+        <div class="wide-visual correspondence-bottom">
+          <img src="https://raw.githubusercontent.com/RainbowRui/project_page_assets/master/scaling4d/figure1.jpeg" alt="Figure 1: correspondence as view guidance">
+        </div>
+      </div>
+    </div>
+  </section>
 
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3" style="margin-top: -20px">Synthetic Data Pipeline</h2>
-
-        <img src="https://raw.githubusercontent.com/RainbowRui/project_page_assets/master/scaling4d/syndata.png" class="center" width="100%" style="margin-bottom: 20px; border-radius: 8px;">
-        <video id="replay-video"
-                  controls
-                  muted
-                  preload
-                  playsinline
-                  width="100%">
-          <source src="https://raw.githubusercontent.com/RainbowRui/project_page_assets/master/scaling4d/PDG_demo.mp4"
-                  type="video/mp4">
-        </video>
-        <div class="content has-text-justified">
-          <p style="margin-top: 30px">
-            To complement the vast diversity of real-world data and further elevate camera pose control accuracy, we develop a specialized synthetic data pipeline. 
-            This highly scalable pipeline is constructed using Houdini's Procedural Dependency Graph (PDG). 
+  <section class="section content-section alt-section" id="synthetic">
+    <div class="container is-max-desktop page-column">
+      <div class="feature-block stacked-block">
+        <div class="stacked-copy">
+          <h2 class="section-title">Synthetic Data Pipeline</h2>
+          <p>
+            To complement the vast diversity of real-world data and further elevate camera pose control accuracy, we develop a specialized synthetic data pipeline.
+            This highly scalable pipeline is constructed using Houdini's Procedural Dependency Graph (PDG).
             By formatting all 3D assets in USD, we exploit its variant mechanism to efficiently generate randomized appearances and support extensible custom variants.
           </p>
         </div>
-
+        <div class="media-grid two-up synthetic-media-shell">
+          <div class="synthetic-media-item">
+            <img src="https://raw.githubusercontent.com/RainbowRui/project_page_assets/master/scaling4d/syndata.png" alt="Synthetic data pipeline">
+          </div>
+          <div class="video-frame synthetic-media-item">
+            <video controls muted preload playsinline width="100%">
+              <source src="https://raw.githubusercontent.com/RainbowRui/project_page_assets/master/scaling4d/PDG_demo.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
-  </div>
-</section>
-
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3" style="margin-top: -20px">Network Structure</h2>
-
-        <img src="https://raw.githubusercontent.com/RainbowRui/project_page_assets/master/scaling4d/network.png" class="center" width="70%" height="auto">
-        <div class="content has-text-justified">
-          <p style="margin-top: 30px">
-            Our highly lightweight architecture features custom VNVS Blocks designed for seamless, plug-and-play integration with any pretrained foundation model. 
+  <section class="section content-section" id="network">
+    <div class="container is-max-desktop page-column">
+      <div class="model-head">
+        <h2 class="section-title">Network Structure</h2>
+      </div>
+      <div class="feature-block model-top">
+        <div class="feature-copy model-copy">
+          <p>
+            Our highly lightweight architecture features custom VNVS Blocks designed for seamless, plug-and-play integration with any pretrained foundation model.
             By explicitly omitting feed-forward (FFN) layers and strictly decoupling from text tokens, the design dramatically minimizes computational overhead while perfectly preserving the foundation model's original prompt-following capabilities.
           </p>
         </div>
-
+        <div class="feature-visual model-visual">
+          <img src="https://raw.githubusercontent.com/RainbowRui/project_page_assets/master/scaling4d/network.jpeg" alt="Network structure">
+        </div>
       </div>
     </div>
+  </section>
 
-  </div>
-</section>
-
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3" style="margin-top: -20px">Scalability with Data Volume</h2>
-
-        <img src="https://raw.githubusercontent.com/RainbowRui/project_page_assets/master/scaling4d/scaling.png" class="center" width="100%" height="auto">
-        <div class="content has-text-justified">
-          <p style="margin-top: 30px">
-            We investigate how our method scales with data volume (1k to 3000k) under a fixed total training iteration budget. 
-            Scaling yields a strong positive correlation with model performance but exhibits two distinct trends. 
-            First, visual quality metrics (FID, FVD, CLIP-V) improve continuously without reaching a saturation point, highlighting the framework's capability to translate massive data into superior fidelity. 
+  <section class="section content-section alt-section" id="scaling">
+    <div class="container is-max-desktop page-column">
+      <div class="feature-block stacked-block">
+        <div class="stacked-copy">
+          <h2 class="section-title">Scalability with Data Volume</h2>
+          <p>
+            We investigate how our method scales with data volume (1k to 3000k) under a fixed total training iteration budget.
+            Scaling yields a strong positive correlation with model performance but exhibits two distinct trends.
+            First, visual quality metrics (FID, FVD, CLIP-V) improve continuously without reaching a saturation point, highlighting the framework's capability to translate massive data into superior fidelity.
             Second, pose accuracy metrics (RotError, TransError) plateau after 100k, suggesting that control precision eventually reaches an upper bound dictated by the current architecture or inherent flow estimation limits.
           </p>
         </div>
-
+        <div class="wide-visual">
+          <img src="https://raw.githubusercontent.com/RainbowRui/project_page_assets/master/scaling4d/scaling.png" alt="Scaling behavior with data volume">
+        </div>
       </div>
     </div>
+  </section>
 
-  </div>
-</section>
-
-
-
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    
-    <div class="content has-text-justified">
-      <p>
-        If you find Scaling4D useful for your work please cite:
-      </p>
-    </div>
-
-    <pre><code>@inproceedings{cai2026scaling4d,
+  <section class="section content-section" id="bibtex">
+    <div class="container is-max-desktop">
+      <div class="section-heading">
+        <h2 class="section-title">BibTeX</h2>
+      </div>
+      <p class="citation-copy">If you find Scaling4D useful for your work, please consider citing:</p>
+      <div class="bibtex-shell">
+<pre><code>@inproceedings{cai2026scaling4d,
   title     = {Scaling4D: Pushing the Frontier of Video Novel View Synthesis through Large-Scale Monocular Videos},
   author    = {Cai, Hongrui and Luo, Junjie and Fu, Zhihong and Zhu, Shengnan and Wen, Jiawei and Feng, Wanquan and Zhao, Songtao and He, Qian},
   booktitle = {Proceedings of the IEEE/CVF conference on computer vision and pattern recognition (CVPR)},
   year      = {2026}
 }</code></pre>
-  </div>
-</section>
-
-
-
-<footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content has-text-centered">
-          <p>
-            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br>
-            This webpage template is from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>. 
-            We sincerely thank <a href="https://keunhong.com/">Keunhong Park</a> for developing and open-sourcing this template.
-          </p>
-        </div>
       </div>
     </div>
-  </div>
-</footer>
+  </section>
+
+  <footer class="footer site-footer">
+    <div class="container is-max-desktop">
+      <p>
+        This website is licensed under a
+        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+      </p>
+      <p>
+        This webpage template was originally adapted from
+        <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+      </p>
+    </div>
+  </footer>
 
 </body>
 </html>
